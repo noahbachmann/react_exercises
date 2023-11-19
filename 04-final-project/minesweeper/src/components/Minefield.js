@@ -4,7 +4,7 @@ import '../App.css'
 
 export default function Minefield() {
 
-    const [size, setSize] = React.useState(5)
+    const [size, setSize] = React.useState(10)
     const [mines, setMines] = React.useState([])
     const randomId = React.useId()
 
@@ -15,6 +15,16 @@ export default function Minefield() {
                 newMines.push({ id: randomId+i+j,row: i, col: j, clicked: false, bomb: false })
             }
         }
+
+        for (let i = newMines.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [newMines[i], newMines[j]] = [newMines[j], newMines[i]];
+        }
+
+        for (let i = 0; i < 20; i++) {
+            newMines[i].bomb = true;
+        }
+
         setMines(newMines)
     }
 
@@ -27,11 +37,13 @@ export default function Minefield() {
     }
 
     return (
-        <div>
+        <div className="minediv">
             <button onClick={GenerateMines}>Generate Game</button>
+            <div className="minefield">
             {mines.map((mine, index) => (
                 <Mine key={index} HandleClick={() => HandleClick(mine.id)} {...mine}/>
             ))}
+            </div>
         </div>
     )
 }
