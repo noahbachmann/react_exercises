@@ -50,10 +50,11 @@
 }
 
 .minebutton{
-  background-color: gray;
+  background-color: rgb(194, 194, 194);
   width: 30px;
   height: 30px;
   margin:5px;
-  font-size: 13px;
+  font-size: 15px;
   text-align: center;
+  font-weight: 700;
 }

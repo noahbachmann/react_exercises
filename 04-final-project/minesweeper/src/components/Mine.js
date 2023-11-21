@@ -1,17 +1,19 @@
 import React from 'react'
 import '../App.css'
 
-function Mine(props) {
-
+function Mine({ col, row, clicked, count, HandleClick, bomb }) {
     return (
-            <button className="minebutton" 
-            style={{
-                gridColumn: props.col + 1,
-                gridRow: props.row + 1
-            }}
-             onClick={props.HandleClick}>
-                {!props.clicked ? "" : props.bomb? "💥":"⭕"}
-            </button>
-    )
-}
-export default Mine;
+      <button
+        className="minebutton"
+        style={{
+          gridColumn: col + 1,
+          gridRow: row + 1,
+        }}
+        onClick={HandleClick}
+      >
+        {!clicked ? '' : bomb ? '💥' : count}
+      </button>
+    );
+  }
+  
+  export default Mine;
