@@ -1,7 +1,7 @@
 import React from 'react'
 import '../App.css'
 
-function Mine({ col, row, clicked, count, HandleClick, bomb }) {
+function Mine({ col, row, clicked, touched, count, HandleClick, bomb }) {
     return (
       <button
         className="minebutton"

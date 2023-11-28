@@ -38,15 +38,19 @@
   }
 }
 
-.minediv{
-  margin:0 auto;
+.minediv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50vh; /* Adjust the height if needed */
 }
 
 .minefield {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(40px, 1fr)); /* Adjust the column size as needed */
-  gap: 5px; /* Adjust the gap between cells as needed */
-  justify-content: center; /* Center the grid horizontally */
+  grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+  gap: 2px;
+  margin-top: 20px; /* Adjust the top margin as needed */
 }
 
 .minebutton{
