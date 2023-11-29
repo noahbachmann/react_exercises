@@ -1,17 +1,20 @@
 import React from 'react'
 import '../App.css'
 
-function Mine({ col, row, clicked, touched, count, HandleClick, bomb }) {
+function Mine({ col, row, clicked, touched, rightclicked, count, HandleClick, HandleRightClick, bomb }) {
     return (
       <button
         className="minebutton"
         style={{
           gridColumn: col + 1,
           gridRow: row + 1,
+          display: 'grid',
+          placeItems: 'center',
         }}
         onClick={HandleClick}
+        onContextMenu={HandleRightClick}
       >
-        {!clicked ? '' : bomb ? '💥' : count}
+        {!clicked ? rightclicked? '❌' : '' : bomb ? '💥' : count}
       </button>
     );
   }
